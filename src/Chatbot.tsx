@@ -18,11 +18,14 @@ const Chatbot = () => {
     setInput("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
-      });
+      const response = await fetch(
+        "https://chatbot-api-zwii.onrender.com/api/chat",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input }),
+        }
+      );
       const data = await response.json();
       typeOutMessage(data.response);
     } catch (error) {
@@ -63,7 +66,7 @@ const Chatbot = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
       <div className="w-11/12 bg-white rounded-lg shadow-lg overflow-hidden">
         <h2 className="text-3xl font-bold text-center text-gray-800 p-4">
-          Chatbot
+          Aridient's AI Chatbot
         </h2>
 
         <div className="h-96 overflow-y-auto p-4 space-y-4 bg-gray-50 rounded-b-lg">
